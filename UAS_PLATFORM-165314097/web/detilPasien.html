@@ -11,6 +11,32 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <div>TODO write content</div>
+        <div>MENAMPILKAN DETAIL PASIEN</div>
+        <h1>Cari NIK</h1>
+        NIK <input type=text id="NIK" required>
+        <button type="button" onclick="loadDoc()" id="btn">DETAIL</button>
+        <p id="demo"></p>
+        <script>
+            function loadDoc() {
+                var url = "http://206.189.38.188:8080/myrs/webresources/pasien/cariPasien?nik" + nik.value;
+                var xhttp = new XMLHttpRequest();
+                var x;
+                var txt = "";
+                xhttp.open('GET', url, true);
+                xhttp.send();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var myObj = JSON.parse(this.responseText);
+                        txt += "<table border='1'>"
+                        txt += "<tr><td>" + "NIK" + "</td><td>" + "NoRm" + "</td><td>" + "Nama" + "</td><td>" + "Alamat" + "</td><td>" + "Tanggal Lahir" + "</td></tr>"
+                        for (x in myObj) {
+                            txt += "<tr><td>" + myObj[x].nik + "</td><td>" + myObj[x].noRm + "</td><td>" + myObj[x].nama + "</td><td>" + myObj[x].alamat + "</td><td>" + myObj[x].tanggalLahir +  "</td></tr>";
+                        }
+                        txt += "</table>"
+                        document.getElementById("demo").innerHTML = txt;
+                    }
+                }
+            }
+        </script>
     </body>
 </html>

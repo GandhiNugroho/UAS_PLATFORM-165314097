@@ -17,23 +17,17 @@ and open the template in the editor.
         <button type="button" onclick="loadDoc()" id="btn">DETAIL</button>
         <p id="demo"></p>
         <script>
-            function loadDoc() {
-                var url = "http://206.189.38.188:8080/myrs/webresources/pasien/cariPasien?nik" + nik.value;
+                        function loadDoc() {
+                var url = "http://206.189.38.188:8080/myrs/webresources/pasien/cariPasien?nik=33101" + nik.value;
+                
                 var xhttp = new XMLHttpRequest();
-                var x;
-                var txt = "";
-                xhttp.open('GET', url, true);
+                xhttp.open("GET", url, true);
                 xhttp.send();
                 xhttp.onreadystatechange = function () {
                     if (this.readyState == 4 && this.status == 200) {
-                        var myObj = JSON.parse(this.responseText);
-                        txt += "<table border='1'>"
-                        txt += "<tr><td>" + "NIK" + "</td><td>" + "NoRm" + "</td><td>" + "Nama" + "</td><td>" + "Alamat" + "</td><td>" + "Tanggal Lahir" + "</td></tr>"
-                        for (x in myObj) {
-                            txt += "<tr><td>" + myObj[x].nik + "</td><td>" + myObj[x].noRm + "</td><td>" + myObj[x].nama + "</td><td>" + myObj[x].alamat + "</td><td>" + myObj[x].tanggalLahir +  "</td></tr>";
-                        }
-                        txt += "</table>"
-                        document.getElementById("demo").innerHTML = txt;
+                        var objj = JSON.parse(this.responseText);
+                        document.getElementById("demo").value = objj.nama;
+                        document.getElementById("alamat").value = objj.alamat;
                     }
                 }
             }

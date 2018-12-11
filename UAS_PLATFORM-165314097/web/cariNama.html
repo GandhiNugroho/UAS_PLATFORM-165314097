@@ -143,7 +143,7 @@ and open the template in the editor.
                                     txt += "<table border='1'>"
                                     txt += "<tr><td>" + "NIK" + "</td><td>" + "Nama" + "</td><td>" + "Tanggal Lahir" + "</td></tr>"
                                     for (x in myObj) {
-                                        txt += "<tr><td>" + myObj[x].nik + "</td><td>" + myObj[x].nama + "</td><td>" + myObj[x].tanggalLahir + "</td></tr>";
+                                        txt += "<tr><td>" + myObj[x].nik + "</td><td>" + myObj[x].nama + "</td><td>" + myObj[x].tanggalLahir + "<button type=\"submit\" onclick=\"Lalala('" + myObj[x].nik +"')\">Detail</button>"+"</td></tr>";
                                     }
                                     txt += "</table>"
                                     document.getElementById("demo").innerHTML = txt;

@@ -11,7 +11,36 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body onload="loadDoc()">
-        
+        <section>
+            <nav>
+                <ul>
+
+                </ul>
+            </nav>
+            <article>
+                No RM: <br>
+                <input type="text" id="noRm" disabled>
+                <br><br>
+                Nama: <br>
+                <input type="text" id="nama" disabled>
+                <br><br>
+                NIK: <br>
+                <input type="text" id="nik" disabled>
+                <br><br>
+                Alamat: <br>
+                <input type="text" id="alamat" disabled>
+                <br><br>
+                Tanggal Lahir:<br>
+                <input type="text" id="tanggalLahir" disabled>
+                <br><br>
+                Kelamin: <br>
+                <input type="text" id="kelamin" disabled>
+                <br><br>
+
+                <p id="demo"></p>
+                <br>
+            </article>
+        </section>
         <script>
             function loadDoc() {
                 var url = "http://206.189.38.188:8080/myrs/webresources/pasien/cariPasien?nik=" + getCookie("nik");

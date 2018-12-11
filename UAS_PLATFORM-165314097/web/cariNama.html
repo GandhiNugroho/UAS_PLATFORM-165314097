@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+<!--Gandhi Nugroho(165314097)-->
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -12,5 +13,31 @@ and open the template in the editor.
     </head>
     <body>
         <div>TODO write content</div>
+        <h1>Cari Pasien</h1>
+        Nama <input type=text id="nama" required>
+        <button type="button" onclick="loadDoc()" id="btn">Cari</button>
+        <p id="demo"></p>
+        <script>
+            function loadDoc() {
+                var url = "http://206.189.38.188:8080/myrs/webresources/pasien/cariNamaPasien?nama=" + nama.value;
+                var xhttp = new XMLHttpRequest();
+                var x;
+                var txt = "";
+                xhttp.open('GET', url, true);
+                xhttp.send();
+                xhttp.onreadystatechange = function () {
+                    if (this.readyState == 4 && this.status == 200) {
+                        var myObj = JSON.parse(this.responseText);
+                        txt += "<table border='1'>"
+                        txt += "<tr><td>" + "NIK" + "</td><td>" + "Nama" + "</td><td>" + "Tanggal Lahir" + "</td></tr>"
+                        for (x in myObj) {
+                            txt += "<tr><td>" + myObj[x].nik + "</td><td>" + myObj[x].nama + "</td><td>" + myObj[x].tanggalLahir + "</td></tr>";
+                        }
+                        txt += "</table>"
+                        document.getElementById("demo").innerHTML = txt;
+                    }
+                }
+            }
+        </script>
     </body>
 </html>

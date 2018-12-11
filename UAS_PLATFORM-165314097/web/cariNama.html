@@ -148,7 +148,18 @@ and open the template in the editor.
                                     txt += "</table>"
                                     document.getElementById("demo").innerHTML = txt;
                                 }
-                            }
+                            };
+                        }
+                        function Lalala(nik) {
+//               
+                            var myWindow = window.open("detilPasien.html", "_self");
+                            setCookie("nik", nik, 1);
+                        }
+                        function setCookie(cname, cvalue, exdays) {
+                            var d = new Date();
+                            d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+                            var expires = "expires=" + d.toUTCString();
+                            document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
                         }
                     </script>
                 </article>
@@ -157,8 +168,5 @@ and open the template in the editor.
 
 
     </body>
-    <footer>
-        <p>Contact Number : 1234-5678-9100</p>
-        <p>Email : AkuPengenSehat@RSUD.com</p>
-    </footer>
+
 </html>
